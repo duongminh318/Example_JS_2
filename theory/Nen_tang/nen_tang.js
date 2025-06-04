@@ -1,7 +1,7 @@
-var message = "Hello, Js";
+// var message = "Hello, Js";
 //console.log(message);
 
-var message2;
+// var message2;
 //console.log(message2);
 
 /*
@@ -202,3 +202,96 @@ var isStudent= true;
 // console.log(num); // 42 (Vẫn giữ nguyên)
 // num = String(num); // Gán lại giá trị mới
 // console.log(num); // "42" (Bây giờ num đã thành chuỗi)
+
+
+// 11.
+// var car = {
+//     band:"Toyota",
+//     model: "Camry",
+//     year:2023,
+// };
+
+// console.log(car);
+// console.log(car.band);
+// console.log(car.model);
+// console.log(car.year);
+
+//12.
+// var person ={
+//     name:"David",
+//     age:25,
+// };
+// person.email="david@example.com";
+// person.age=26;
+// console.log(person.age);
+// console.log(person.email);
+
+
+//13.
+// var laptop = {
+//     specs: {
+//         RAM: "16GB",
+//         CPU: "Intel Core i7",
+//         SSD: "512GB"
+//     },
+//     band: "Apple"
+// };
+// console.log(laptop.specs.CPU);
+
+
+//14.
+// var library = {
+//     name: "Central Library",
+//     books: ["JavaScript Basics", "Python for Beginners", "Data Structures"]
+// };
+// console.log(library.books[1]);
+// library.books[3]="Web Development";
+// // console.log(library.books[3]);
+// console.log(library);
+
+
+// console.log(Boolean("false")); // true - vì là chuỗi không rỗng
+// console.log(Boolean(1));       // true - số khác 0
+// console.log(Boolean([]));      // true - mảng rỗng là truthy
+// console.log(Boolean(null));    // false - đây là falsy
+
+// console.log(String([1, 2, 3]))
+// 
+//  var hello_World = 'Hello World';
+// var numbers = [];
+
+
+
+// ex7
+
+// var age = 20;
+// console.log(typeof age); // Output: number
+// console.log(typeof 20); // Output: number
+// console.log(typeof "LetDiv"); // Output: string
+// var ___a = true;
+// console.log(typeof ___a); // Output: boolean
+// console.log(typeof null); // Output: object (đây là lỗi của JavaScript)
+// console.log(typeof undefined); // Output: undefined
+// console.log(typeof NaN); // Output: number
+
+
+//ex8
+// var students = ['Lan', 'Hung', 'Tien', 'Cuong', 'Tuan']
+// console.log(students[2]); // Output: 'Tien'
+// students[3] = 'Trung';
+// console.log(students);
+
+
+//11
+// var characters = ['A', 'B', 'C', 'D'];
+// characters[4]= "E";
+// console.log(characters);
+
+//16
+// var value = '1.5';
+// value= Number(value);
+// console.log(value);
+
+
+
+
