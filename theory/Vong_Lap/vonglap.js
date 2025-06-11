@@ -39,7 +39,7 @@
 // Điều kiện (condition): Được kiểm tra trước mỗi lần lặp. Nếu đúng, khối lệnh bên trong sẽ được thực thi. Nếu sai, vòng lặp dừng lại.
 
 // var count = 5;
-        
+
 // while (count > 0) {
 //   console.log(count);
 //   count--; // Giảm count đi 1, đây là lệnh để thay đổi điều kiện
@@ -96,7 +96,7 @@ var count = 5;
 while (count > 0) {
   // Vòng lặp này sẽ in "Số đếm là: 5" mãi mãi
   console.log("Số đếm là: " + count);
-  
+
   // LỖI Ở ĐÂY: Không có lệnh nào để thay đổi giá trị của 'count'
   // Lẽ ra phải có lệnh count--;
 }
@@ -125,15 +125,15 @@ console.log("Dòng này sẽ không bao giờ được thực thi.");
 // }
 
 
-for (var i = 1; i <= 5; i++) {
- console.log(`Bắt đầu lần lặp thứ ${i}`);
- if (i === 3) {
-  break; // Thử thay bằng 'continue' để so sánh
- //continue;
-}
- console.log(`Kết thúc lần lặp thứ ${i}`);
-}
-console.log("Vòng lặp kết thúc!");
+// for (var i = 1; i <= 5; i++) {
+//  console.log(`Bắt đầu lần lặp thứ ${i}`);
+//  if (i === 3) {
+//   break; // Thử thay bằng 'continue' để so sánh
+//  //continue;
+// }
+//  console.log(`Kết thúc lần lặp thứ ${i}`);
+// }
+// console.log("Vòng lặp kết thúc!");
 /*
 Output khi dùng 'break':
 Bắt đầu lần lặp thứ 1
@@ -154,3 +154,15 @@ Bắt đầu lần lặp thứ 5
 Kết thúc lần lặp thứ 5
 Vòng lặp kết thúc!
 */
+
+
+// for (var i = 1; i <= 10; i++) {
+//   if (i % 2 !== 0) {
+//     continue;
+//   }else {   //tại sao ở đây không { }
+//     console.log(i);
+//   }
+// }
+
+
+
