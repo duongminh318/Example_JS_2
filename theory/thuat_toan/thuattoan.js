@@ -159,18 +159,39 @@
 //      console.log("Mảng ko có số chẵn."); 
 // }
 
-var numbers = [1, 8, 10, 3];
-var isEvenFound = false;
-for (var i = 0; i < numbers.length; i++) {
-    if (numbers[i] % 2 === 0) {
-        isEvenFound = true; // Tìm thấy nhưng vẫn lặp
-        break;
+// var numbers = [1, 8, 10, 3];
+// var isEvenFound = false;
+// for (var i = 0; i < numbers.length; i++) {
+//     if (numbers[i] % 2 === 0) {
+//         isEvenFound = true; // Tìm thấy nhưng vẫn lặp
+//         break;
+//     }
+// }
+// // Không tối ưu
+
+// if (isEvenFound) {
+//  console.log("Mảng có số chẵn."); // Sai vì không có số chẵn
+// }else{
+//      console.log("Mảng ko có số chẵn."); 
+// }
+
+var numbers = [ 5 , 10, 2, 8, 25, 15, 30];
+var maxValue = numbers[0]; // 1. Khởi tạo maxValue bằng phần tử ĐẦU TIÊN (5)
+for (var i = 1; i < numbers.length; i++) { // 2. Duyệt từ phần tử thứ HAI (index 1)
+    if (numbers[i] > maxValue) { // 3. So sánh phần tử hiện tại với maxValue
+        maxValue = numbers[i]; // 4. Nếu lớn hơn, cập nhật maxValue
     }
 }
-// Không tối ưu
+console.log("Số lớn nhất trong mảng là:", maxValue); // 5. In kết quả (25)
 
-if (isEvenFound) {
- console.log("Mảng có số chẵn."); // Sai vì không có số chẵn
-}else{
-     console.log("Mảng ko có số chẵn."); 
-}
+// if (numbers[i] <= numbers[i + 1])
+
+// Nếu để i < numbers.length, thì vòng cuối cùng sẽ là:
+
+// i = numbers.length - 1
+
+// numbers[i + 1] = numbers[numbers.length] → vượt mảng
+
+// var numbers = [10, 9, 6, 4, 2, 0]; // length = 6
+// console.log(numbers[6]);
+

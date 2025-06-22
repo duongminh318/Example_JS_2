@@ -143,5 +143,192 @@
 // console.log(drinkType ==="Cà phê");
 
 //14
- var expression = 5 * (2 + 3)
- console.log(expression);
+//  var expression = 5 * (2 + 3)
+//  console.log(expression);
+
+
+//  var number = [3, 7, 1, 9, 4];
+
+//         // Sửa 1: Dùng cấu trúc if...else để xử lý dứt điểm trường hợp mảng rỗng
+//         if (number.length === 0) {
+//             console.log("Mảng rỗng");
+//         } else {
+//             var allPositive = true;
+//             for (var i = 0; i < number.length; i++) {
+//                 if (number[i] <= 0) {
+//                     allPositive = false;
+//                     break;
+//                 }
+//             }
+
+//             // Sửa 2: Kiểm tra trực tiếp giá trị của biến boolean
+//             if (allPositive) {
+//                 console.log("Tất cả là số dương");
+//             } else {
+//                 console.log("Có số không dương");
+//             }
+//         }
+
+// var numbers = [5, 10, 2, 8, 25, 15];
+// var maxValue = numbers[0]; // Coi 5 là lớn nhất tạm thời
+
+// for (var i = 1; i < numbers.length; i++) {
+//     if (numbers[i] > maxValue) {
+//         maxValue = numbers[i]; // Gặp số lớn hơn thì cập nhật
+//     }
+// }
+
+// console.log("Số lớn nhất là:", maxValue); // 25
+
+// var numbers = [5, 10, 2, 8, 25, 15];
+// var minValue = numbers[0]; // 1. Khởi tạo minValue bằng phần tử ĐẦU TIÊN (5)
+// for (var i = 1; i < numbers.length; i++) { // 2. Duyệt từ phần tử thứ HAI (index 1)
+//     if (numbers[i] < minValue) { // 3. So sánh phần tử hiện tại với minValue
+//         minValue = numbers[i]; // 4. Nếu nhỏ hơn, cập nhật minValue
+//     }
+// }
+// console.log("Số nhỏ nhất trong mảng là:", minValue); // 5. In kết quả (2)
+
+
+// var products = [
+//   { name: "Áo thun", price: 50000 },
+//   { name: "Quần jeans", price: 150000 },
+//   { name: "Giày sneaker", price: 80000 }
+// ];
+
+// var maxProduct= products[0];
+// for(var i=1; i< products.length; i++){
+//     if(products[i].price> maxProduct.price){
+//         maxProduct=products[i];
+//     }
+// }
+// console.log(maxProduct);
+// console.log("giá cao nhất là", maxProduct.price);
+// console.log("sản phẩm có giá cao nhất là", maxProduct.name);
+
+
+// var products = [
+//   { name: "Áo thun", price: 50000 },
+//   { name: "Quần jeans", price: 150000 },
+//   { name: "Giày sneaker", price: 80000 }
+// ];
+
+// var minProduct= products[0];
+// for(var i=1; i< products.length; i++){
+//     if(products[i].price < minProduct.price){
+//         minProduct=products[i];
+//     }
+// }
+// console.log(minProduct);
+// console.log("giá thấp nhất là", minProduct.price);
+// console.log("sản phẩm có giá thấp nhất là", minProduct.name);
+
+//ex 8
+
+// var numbers = [1,2,3];
+
+
+// if (numbers.length === 0) {
+//     console.log("Mảng rỗng");
+// } else {
+//     var maxValue = numbers[0];
+//     for (var i = 1; i < numbers.length; i++) {
+//         if (numbers[i] > maxValue) {
+//             maxValue = numbers[i];
+//         }
+//     }
+//     console.log(maxValue)
+// }
+
+// var prices = [100, 120, 90, 150, 160, 140];
+// var decreaseCount = 0; // Biến đếm số lần giá giảm
+
+// for (var i = 0; i < prices.length - 1; i++) { // Dừng trước phần tử cuối
+//     var currentPrice = prices[i]; // Giá hiện tại
+//     var nextPrice = prices[i + 1]; // Giá sau
+//     if (currentPrice > nextPrice) { // So sánh: hiện tại > sau
+//         decreaseCount++; // Tăng đếm nếu giá giảm
+//         console.log(`Giá giảm từ ${currentPrice} xuống ${nextPrice} tại vị trí index ${i}`);
+
+//     }
+// }
+//    console.log("Tổng số lần giá giảm:", decreaseCount); // In kết quả (2)
+
+
+// var prices = [100, 120, 90, 150, 160, 140];
+// var decreaseCount = 0; // Biến đếm số lần giá giảm
+
+// for (var i = 0; i < prices.length - 1; i++) { // Dừng trước phần tử cuối
+//     var currentPrice = prices[i]; // Giá hiện tại
+//     var nextPrice = prices[i + 1]; // Giá sau
+//     if (currentPrice < nextPrice) { // So sánh: hiện tại > sau
+//         decreaseCount++; // Tăng đếm nếu giá giảm
+//         console.log(`Giá tăng từ ${currentPrice} lên ${nextPrice} tại vị trí index ${i}`);
+
+//     }
+// }
+//    console.log("Tổng số lần giá tăng:", decreaseCount); // In kết quả (2)
+
+
+// var products = [
+//  { name: "SP1", price: 100 },
+//  { name: "SP2", price: 120 }, // Giá tăng
+//  { name: "SP3", price: 90 },
+//  { name: "SP4", price: 150 }, // Giá tăng
+//  { name: "SP5", price: 140 }
+// ];
+
+// var increaseCount= 0;
+
+// for(var i=0; i<products.length-1; i++ ){
+//     var currentProduct= products[i];
+//     var nextProduct= products[i+1];
+
+//     if(currentProduct.price < nextProduct.price){
+//         increaseCount++;
+//         console.log(`giá tăng từ ${currentProduct.price} lên ${nextProduct.price} `);
+//         console.log(`${nextProduct.name}`);
+//     }
+
+// }
+// console.log(`tổng số lần tăng ${increaseCount}`);
+
+var matrix = [
+    [1, 2, 3],   // hàng 0
+    [4, 5, 6],   // hàng 1
+    [7, 8, 9]    // hàng 2
+];
+
+// console.log(matrix[0]);
+// console.log(matrix[0][1]);
+// console.log(matrix[1][0]);
+// console.log(matrix[1][2]); // matrix[1][2] nghĩa là hàng số 1, cột số 2 ->6
+
+// for (var i = 0; i < matrix.length; i++) {
+//      console.log(matrix[i]);
+//      // Vòng lặp trong: Duyệt qua các cột trong hàng hiện tại
+//   for (var j = 0; j < matrix[i].length; j++) {
+//     console.log(`Phần tử tại [${i}][${j}] là ${matrix[i][j]}`);
+//   }
+
+// }
+
+var products = [
+    { name: "Bút", price: 5000, quantity: 3 },
+    { name: "Sách", price: 20000, quantity: 2 },
+    { name: "Tẩy", price: 3000, quantity: 2 }
+];
+
+
+if (products.length === 0) {
+    console.log("mảng rỗng");
+}
+
+else {
+
+    var minValueProduct = products[0];
+    var minValue = minValueProduct.price * minValueProduct.quantity;
+    console.log(minValue);
+
+    // for( var i=1; )
+}
