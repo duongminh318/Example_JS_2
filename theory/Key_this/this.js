@@ -77,23 +77,67 @@ const person = {
 // // person.sayHello()
 
 
-const calculator = {
-    value: 0,  
-    add: function (num) {
-        this.value += num;
-        return this.value;
-    },
-    subtract: function (num) {
-        this.value -= num;
-        return this.value;
-    },
-    getValue: function () {
-        return this.value;
-    }
-};
+// const calculator = {
+//     value: 0,  
+//     add: function (num) {
+//         this.value += num;
+//         return this.value;
+//     },
+//     subtract: function (num) {
+//         this.value -= num;
+//         return this.value;
+//     },
+//     getValue: function () {
+//         return this.value;
+//     }
+// };
 
-const objectmoi={value:10};
-let sum = calculator.add.call(objectmoi, 5);
+// const objectmoi={value:10};
+// let sum = calculator.add.call(objectmoi, 5);
 
-console.log(sum);
+// console.log(sum);
 
+
+
+// const globalArowFunction= ()=>{
+//     console.log("trong globalArowFunction, this là", this);
+// }
+// globalArowFunction();
+
+// const myObjectArrow = {
+//     property: " Giá trị object arrow",
+
+//     myMethod: function () {
+//         const arrowFunc = () => {
+//             console.log("Arrow function, this là:", this);
+//         }
+
+//         arrowFunc.call({ name: 'attemmpt to change this' });
+//         arrowFunc.apply({ name: 'attemmpt to change this' });
+//         const boundArrowFunc = arrowFunc.bind({ name: 'attemmpt to change this' });
+//         boundArrowFunc();
+//         arrowFunc();
+//     }
+
+// }
+// myObjectArrow.myMethod();
+
+// const myObjectRegular={
+//     property: " Giá trị object arrow",
+
+//     myMethod: function () 
+//     {
+//          "use strict";
+//         const regularFunc = function() {
+//             console.log("Regular function, this là:", this);
+//         }
+
+//         // arrowFunc.call({ name: 'attemmpt to change this' });
+//         // arrowFunc.apply({ name: 'attemmpt to change this' });
+//         // const boundArrowFunc = arrowFunc.bind({ name: 'attemmpt to change this' });
+//         // boundArrowFunc();
+       
+//         regularFunc();
+//     }
+// }
+// myObjectRegular.myMethod();
