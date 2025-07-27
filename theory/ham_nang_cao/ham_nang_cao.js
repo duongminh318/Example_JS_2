@@ -6,9 +6,9 @@
 
 
 // arrow function
-const binhPhuong_arrow = (x) => {
-    return x * x;
-}
+// const binhPhuong_arrow = (x) => {
+//     return x * x;
+// }
 
 // console.log(binhPhuong_arrow(2));
 
@@ -136,9 +136,9 @@ const binhPhuong_arrow = (x) => {
 
 
 // // Công thức 1: 
-function congThucInRa(ketquanhamaytong){
-    console.log("kết quả cuối cùng là ",ketquanhamaytong);
-}
+// function congThucInRa(ketquanhamaytong){
+//     console.log("kết quả cuối cùng là ",ketquanhamaytong);
+// }
 
 
 // // công thức 2
@@ -188,11 +188,74 @@ function congThucInRa(ketquanhamaytong){
 // ruaChen(lauBan)
 
 
-function thucHienPhepTinh(a, b, callback) {
- let ketQua = a + b;
- callback(ketQua);
+// function thucHienPhepTinh(a, b, callback) {
+//  let ketQua = a + b;
+//  callback(ketQua);
+// }
+
+
+
+// thucHienPhepTinh(3,5, result => console.log("Kết quả là ", result));
+
+// khai báo một đối tượng user
+// const user= {
+//     id:1,
+//     ten: "nguyễn văn A",
+//     tuoi: 25,
+//     email: "annguyen@gmail.com"
+// }
+
+// // hàm để hiện thông tin
+// function hienThiThongTin(nguoiDung){
+//     console.log(`${nguoiDung.ten}`);
+//     console.log(`${nguoiDung.tuoi}`);
+// }
+
+// hienThiThongTin(user);
+
+
+// function hienThiThongTin({ten, tuoi}){
+//     console.log(`${ten}`);
+//     console.log(`${tuoi}`);
+// }
+
+// hienThiThongTin(user);
+
+
+// function timMinMax(mangSo){
+//     // giả sử mảng không rỗng
+//     let min= mangSo[0];
+//     let max= mangSo[0];
+
+//     for(const so of mangSo){
+//         if(so>max) {max=so}
+//         if(so<min) {min=so}
+
+//     }
+
+//     return {
+//         giaTriLonNhat: max,
+//         giaTriNhoNhat: min,
+//         a:0
+//     };
+// }
+
+// // dùng destructuring để hứng
+// const {giaTriLonNhat, giaTriNhoNhat, a}= timMinMax([1,2,3,4,6])
+// console.log(giaTriLonNhat);
+// console.log(giaTriNhoNhat);
+// console.log(a);
+
+const data = {
+    event: "Concert",
+    details: {
+        location1: "Hanoi",
+        time: { start: "19:00", end: "22:00" },
+        ticketPrice: 5000
+    },
+
 }
 
+const { event, details: { location1, time: { start }, ticketPrice }  } = data;
+console.log(`sự kiện ${event} địa điểm ${location1}, thởi gian bắt đầu ${start}, giá vé ${ticketPrice}`);
 
-
-thucHienPhepTinh(3,5, result => console.log("Kết quả là ", result));
