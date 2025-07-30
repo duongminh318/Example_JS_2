@@ -1,0 +1,45 @@
+<!-- File: index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ứng Dụng To-Do List</title>
+  <style>
+    .completed {
+      text-decoration: line-through;  /* gạch ngang*/
+      color: gray;
+    }
+    li {
+      cursor: pointer;
+      padding: 5px;
+      border-bottom: 1px solid #eee;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+    .input-area {
+      margin: 10px 0;
+    }
+    #new-task-input {
+      padding: 5px;
+      width: 200px;
+    }
+    #add-task-button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Danh Sách Công Việc</h1>
+  <div class="input-area">
+    <input type="text" id="new-task-input" placeholder="Nhập công việc mới">
+    <button id="add-task-button">Thêm</button>
+  </div>
+  <ul id="task-list">
+    <!-- Danh sách công việc sẽ được hiển thị ở đây -->
+  </ul>
+  <!-- Quan trọng: type="module" cho phép sử dụng import/export -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
+
