@@ -100,6 +100,7 @@
 //     tacVuB (function(){
 //         // bên trong call back của B,  chúng ta gọi tác vụ C
 //        tacVuC(function(){
+
 //         // sau khi C hoàn thành, in ra thông báo cuối cùng
 //         console.log("cả ba tác vụ A, B, C đã hoàn thành");
 //        })
@@ -121,37 +122,245 @@
 
 // tạo promise mơi mô phỏng việc đu mua đồ ăn
 
-const loiHuaMuaDoAn= new Promise(function(thanhCong, thatBai){
-    // code trong này
-    console.log("lời hứa mua đồ ăn đang được tạo ra ..."); //1
-    // giả lập một tác vụ bất đồng bộ
-    setTimeout(function(){
-        // giả lập kết quả : hôm nay có mua được đồ ăn hay không
-        const coDoAnKhong= false;
+// const loiHuaMuaDoAn= new Promise(function(thanhCong, thatBai){
+//     // code trong này
+//     console.log("lời hứa mua đồ ăn đang được tạo ra ..."); //1
+//     // giả lập một tác vụ bất đồng bộ
+//     setTimeout(function(){
+//         // giả lập kết quả : hôm nay có mua được đồ ăn hay không
+//         const coDoAnKhong= false;
 
-        // nếu mua dc đồ ăn thành công (resolve) và trả về kết quả
-        if(coDoAnKhong){
-            thanhCong("gà!");
-        } else{
-            // nếu không, gọi hàm ThatBai (reject) và trả về lý do.
-            thatBai("hôm nay hết đồ ăn rồi")
-        }
+//         // nếu mua dc đồ ăn thành công (resolve) và trả về kết quả
+//         if(coDoAnKhong){
+//             thanhCong("gà!");
+//         } else{
+//             // nếu không, gọi hàm ThatBai (reject) và trả về lý do.
+//             thatBai("hôm nay hết đồ ăn rồi")
+//         }
 
-    },1000 )
-})
+//     },1000 )
+// })
 
-// gắn các trình xử lý promise
-loiHuaMuaDoAn
-        .then(function(doAn){
-            console.log(".then được gọi - Mua đồ anh thành công ");
-            console.log("kết quả ", doAn);
+// // gắn các trình xử lý promise
+// loiHuaMuaDoAn
+//         .then(function(doAn){
+//             console.log(".then được gọi - Mua đồ anh thành công ");
+//             console.log("kết quả ", doAn);
+//         })
+//         // .catch() sẻ được thực thi nếu promise bị reject (thatBai)
+//         .catch(function(lyDo){
+//             console.log(".catch được gọi - Mua đồ anh thất bại ");
+//             console.error("kết quả ", lyDo);
+//         })
+//         .finally(function(){
+//           console.log("finaly()  dc gọi - kết thúc mua đồ ăn");
+//         });
+
+// console.log("Chương trình chính vẫn chạy...");
+
+
+// Promise Chain
+// A --> B ---> C
+
+// function tacVuPromiseA(){
+
+//     return new Promise( resolve =>{
+//         setTimeout(()=>{
+//                 console.log("Tác vụ Promise A hoàn thành");
+//                 resolve("kết quả từ Task A");
+//         }, 500);
+//     });
+
+// }
+
+
+// function tacVuPromiseB(dataFromA){
+
+//     return new Promise( (resolve, reject) =>{
+//         setTimeout(()=>{
+//                 // console.log("Tác vụ Promise B hoàn thành dựa trên ", dataFromA);
+//                 // resolve("kết quả từ Task B");
+//                 reject ("lỗi sải ra ở tác vụ B")
+//         }, 500);
+//     });
+// }
+
+
+// function tacVuPromiseC(dataFromB){
+
+//     return new Promise( resolve =>{
+//         setTimeout(()=>{
+//                 console.log("Tác vụ Promise C hoàn thành dựa trên ", dataFromB);
+//                 resolve("kết quả từ Task C");
+//         }, 500);
+//     });
+
+// }
+
+// console.log("bắt đầu chuỗi Promise");
+// tacVuPromiseA()
+//     // .then() đầu tiên xử lý kết quả từ tacVuPromiseA.
+//     // kết quả trả vể từ tacVuPromiseA --> tacVuPromiseB()
+//     .then(dataA=> tacVuPromiseB(dataA))
+//     .then(dataB=> tacVuPromiseC(dataB))
+//     .then(ketQuaCuoiCung =>{
+//         console.log("chuỗi promise đã hoàn thành, kết quả cuối cùng là", ketQuaCuoiCung);
+//     })
+
+//     .catch(error=>{
+//         console.error("lỗi trong chuỗi promise: ", error);
+//     })
+
+
+// ex13
+// const myPromise = new Promise((resolve, reject) => {
+//     console.log("Bắt đầu Promise...");
+//     setTimeout(() => {
+//         resolve("Thành công!");
+//         console.log("Trong setTimeout sau resolve");
+//     }, 0);
+//     console.log("Kết thúc executor");
+// });
+// myPromise.then(value => {
+//     console.log("Then nhận được:", value);
+// });
+
+// console.log("Mã chính chạy");
+
+
+// const soNgauNhien = Math.random();
+// console.log(soNgauNhien);
+
+
+// promise all
+
+// chờ cho tất cả các promise trong mảng hoàn thành --> trả về kết quả
+
+// const promise1= new Promise((resolve) =>{
+//     setTimeout(()=>{
+//         console.log("Promise 1 đã resolve sau 2 giây");
+//         resolve("gà");
+//     },2000)
+// })
+
+// const promise2= new Promise((resolve, reject) =>{
+//     setTimeout(()=>{
+//         console.log("Promise 1 đã resolve sau 1 giây");
+//         //   resolve("coca");
+//         reject("Lỗi 2");
+//     },1000)
+// })
+
+// const promise3= new Promise((resolve) =>{
+//     setTimeout(()=>{
+//         console.log("Promise 1 đã resolve sau 1.5 giây");
+//         resolve(3);
+//     },1500)
+// })
+
+
+// Promise.all([promise1,promise2 ,promise3])
+//     .then((results)=> {
+//         console.log("tất cả các Promise thành công ", results);
+//     })
+//     // catch
+//     .catch((error) => {
+//         console.error("promise ALl thất bại vì:", error);
+//     });
+
+
+// Promise.race
+
+// const promiseFast = new Promise((resolve, reject) =>{
+//     setTimeout(()=>{
+//         console.log("promise Fast đã resolve sau 0.5 giây");
+//         reject("lỗi")
+//         // resolve("Promise nhanh Thắng cuộc >> ");
+//     },500)
+// })
+
+
+// const promiseSlow = new Promise((resolve) =>{
+//     setTimeout(()=>{
+//         console.log("promise Slow đã resolve sau 1.5 giây");
+//         resolve("Promise chậm về sau ...");
+//     },1500)
+// })
+
+// //bắt đầu cuộc đua
+// Promise.race([promiseFast, promiseSlow])
+//     .then(ketQua =>{
+//         console.log("kết quả tử Promise race", ketQua);
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     })
+
+
+
+// promise.resolve(value)
+// tạo nhanh một promise đã được resolve với giá trị 20
+// Promise.resolve(20).then(data => {
+//     console.log("Promise đã resolve với giá trị ", data);
+// })
+
+
+// Promise.reject("Lỗi")
+//     .catch(error => {
+//         console.log("Promise đã reject với lý do", error);
+//     });
+
+
+// async / await
+// async : đánh dấu đây là 1 promise
+// async function helloAsync() {
+//     return "Xin chào";
+
+// }
+
+//  helloAsync().then(x => console.log(x)); 
+// //  console.log( helloAsync());
+
+// // đánh dấu dây là async
+// async function asyncError() {
+//     throw new Error("Lỗi từ async function!");
+// }
+
+// asyncError().catch(e => console.error(e));
+
+// await : chờ đợi
+
+// try 
+// catch
+
+async function hamViDu_ThanhCong() {
+    // sử dụng try catch
+    try {
+
+        console.log("hàm async bắt đầu...");
+        console.log("bắt đầu chờ 1 giây và lấy giá trị...>");
+
+        const ketQuaCho1Giay = new Promise((resolve) => {
+            setTimeout(() => {
+                console.log("Promise 1 giây đã resolve");
+                resolve("giá trị sau 1 giây")
+            }, 1000)
         })
-        // .catch() sẻ được thực thi nếu promise bị reject (thatBai)
-        .catch(function(lyDo){
-            console.log(".catch được gọi - Mua đồ anh thất bại ");
-            console.error("kết quả ", lyDo);
+
+        console.log(ketQuaCho1Giay);
+
+        console.log("kết thúc Promise 1 giây");
+        const ketQuaChoNuaGiay = new Promise((resolve) => {
+            setTimeout(() => {
+                console.log("Promise nửa giây đã resolve");
+                resolve("giá trị sau nửa giây")
+            }, 500)
         })
-        .finally(function(){
-          console.log("finaly()  dc gọi - kết thúc mua đồ ăn");
-        });
-        
+
+    }
+    catch (error) {
+
+    }
+}
+
+
