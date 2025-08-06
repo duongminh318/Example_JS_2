@@ -333,34 +333,177 @@
 // try 
 // catch
 
-async function hamViDu_ThanhCong() {
-    // sử dụng try catch
+// Khai báo hàm là async để có thể sử dụng await bên trong.
+// async function hamViDu_ThanhCong() {
+//     // sử dụng try catch
+//     try {
+
+
+//         console.log("hàm async bắt đầu...");
+//         console.log("bắt đầu chờ 1 giây và lấy giá trị...>");
+//         // Dừng ở đây, chờ Promise này resolve sau 1 giây.
+//         const ketQuaCho1Giay = await new Promise((resolve) => {
+//             setTimeout(() => {
+//                 console.log("Promise 1 giây đã resolve");
+//                 resolve("giá trị sau 1 giây")
+//             }, 1000)
+//         })
+
+//         console.log("đã chờ xong 1 giây và nhận giá trị",ketQuaCho1Giay);
+
+//         console.log("kết thúc Promise 1 giây");
+//         const ketQuaChoNuaGiay = await new Promise((resolve) => {
+//             setTimeout(() => {
+//                 console.log("Promise nửa giây đã resolve");
+//                 resolve("giá trị sau nửa giây")
+//             }, 500)
+//         })
+//         console.log("Đã chờ xong 0.5 giây và nhận giá trị",ketQuaChoNuaGiay );
+//         //sau 0.5 giây nữa, code tiếp tục
+
+//         console.log("hàm async kết thúc");
+
+//         return "Hoàn thành!";
+
+//     }
+//     catch (error) {
+//         // khối này sẽ không chay trong trường hợp thành công
+//         // nếu bị lỗi thỉ mới bắt lỗi 
+//         console.error("Đã có lỗi trong hàm async", error);
+
+//     }
+// }
+
+
+// // gọi hàm
+// hamViDu_ThanhCong().then(KetQuaCuoiCung=>{
+//     console.log("Kết quả cuối cùng trả về từ hàm async",KetQuaCuoiCung );
+// });
+
+// // dòn
+// console.log("Chương trình chính vẫn chạy "); //2
+
+
+// async function hamViDu_CoLoi() {
+//     try {
+//         console.log("hàm async bắt đầu ....");
+//         // dừng ở đây, chò Promise này resolve sau 1 giây
+//         const ketQua1 = Promise(resolve => setTimeout(() => resolve("Bước 1 OK"), 1000));
+
+//         // dừng ở đây
+
+//         const ketQua2 = Promise((resolve, reject) => setTimeout(() =>
+//             reject("Bước 2 gặp lỗi "), 1000));
+
+//         console.log("hàm async kết thúc");
+
+
+
+//     } catch (error) {
+//         // khi await gặp Promise bị reject, code sẽ nhảy vào khối này
+//         console.error("Đã có lỗi trong hàm async", error);
+
+//     }
+
+// }
+
+// hamViDu_CoLoi();
+
+// Fetch Api
+// ajax : không cần tải lại toàn bộ trang web
+
+
+// fetch (url, option)
+// .then(response => {
+// response.json() // cũng trả về Promise
+// return response.json()
+// } )
+// .then(data => console.log(data);)
+// .catch(error => {
+//     console.error(error);
+// })
+
+// ví dụ
+// fetch('https://jsonplaceholder.typicode.com/todos/1')
+// .then(response=> response.json())
+// .then(json => console.log(json));
+
+
+//dùng async/await để code trông gọn hơn
+// async function layMotViecCanLam() {
+//     try {
+//         const response = await fetch('https://jsonplacehoslder.typicode.com/posts/1')
+//         const data = await response.json();
+//         console.log("dữ liệu là:", data);
+
+//     } catch (error) {
+//         // trường hợp bị lỗi mạng
+//         console.log("Bắt dc lỗi Fetch:", error.message);
+//     }
+
+// }
+
+// layMotViecCanLam();
+
+
+// async function layPostKhongTonTai() {
+
+//     try {
+//          const response = await fetch('https://jsonplaceholder.typicode.com/posts/1')
+
+//          console.log("Response status: ", response.status);
+//          if(!response.ok){
+//             // nếu không thành công, throw một lỗi để khối catch bắt
+//             throw new Error(` Lỗi HTTP status ${response.status}`)
+//          }
+
+//          // thành công thì chạy xuống đây
+//         const data = await response.json();
+//         console.log("dữ liệu là:", data);
+
+
+//     } catch (error) {
+//         console.log("bắt dc lỗi", error.message);
+//     }
+
+// }
+
+// layPostKhongTonTai();
+
+// tạo bài post
+async function taoPostMoi() {
     try {
+        console.log("Bắt đầu tạo post mới (POST request)...");
 
-        console.log("hàm async bắt đầu...");
-        console.log("bắt đầu chờ 1 giây và lấy giá trị...>");
+        // Gọi fetch với tham số thứ hai là một object options.
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST', // Chỉ định phương thức là POST.
+            headers: {
+                // Báo cho server biết rằng chúng ta đang gửi dữ liệu dạng JSON.
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            // Body của request phải là một chuỗi JSON.
+            // Dùng JSON.stringify để chuyển đổi một object JavaScript thành chuỗi.
+            body: JSON.stringify({
+                title: 'Tiêu đề bài post mới từ Javascript',
+                body: 'Nội dung của bài post mới này được tạo từ Javascript và Fetch API.',
+                userId: 1,
+            }),
+        });
 
-        const ketQuaCho1Giay = new Promise((resolve) => {
-            setTimeout(() => {
-                console.log("Promise 1 giây đã resolve");
-                resolve("giá trị sau 1 giây")
-            }, 1000)
-        })
+        console.log("Response status (POST):", response.status); // Status 201 nghĩa là "Created".
+        if (!response.ok) {
+            throw new Error(`Lỗi HTTP! Status: ${response.status}`);
+        }
 
-        console.log(ketQuaCho1Giay);
-
-        console.log("kết thúc Promise 1 giây");
-        const ketQuaChoNuaGiay = new Promise((resolve) => {
-            setTimeout(() => {
-                console.log("Promise nửa giây đã resolve");
-                resolve("giá trị sau nửa giây")
-            }, 500)
-        })
-
-    }
-    catch (error) {
-
+        // Nhận lại dữ liệu post vừa "tạo" từ server.
+        const newPost = await response.json();
+        console.log("Post mới đã được 'tạo' (JSONPlaceholder fake):", newPost);
+        return newPost;
+    } catch (error) {
+        console.error("Lỗi POST request:", error); // put/delete
     }
 }
 
+taoPostMoi();
 
